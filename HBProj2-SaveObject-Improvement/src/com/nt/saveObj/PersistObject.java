@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.nt.entity.Product;
 
-public class SaveObject {
+public class PersistObject {
 
 	public static void main(String[] args){
 	Configuration cfg=null;
@@ -18,6 +18,7 @@ public class SaveObject {
 	Product prod=null;
 	Transaction trans=null;
 	boolean flag=false;
+	int idval=0;
 
 //Activating the hibernate Framework
 	cfg=new Configuration();
@@ -29,15 +30,18 @@ public class SaveObject {
     ses=factory.openSession();
 //Create entity class Object to Store data to database
     prod=new Product();
-       prod.setPid(103);
+       prod.setPid(102);
        prod.setPname("colling pad");
        prod.setPrice(200);
        prod.setQty(1);
  //Transaction management Code
        try {
     	   trans= ses.beginTransaction();  //internally calls  con.setAutoCommit(false) to begin the Tx
+    	   System.out.println("Transaction objecct class name::"+trans.getClass());
     	   //Save the Object  
-    	   ses.save(prod);
+    	   ses.persist(prod);
+    	  System.out.println("Generated ideantity values::"+idval);
+    	  System.out.println("Configure id values::"+prod.getPid());
     	     flag=true;
        }
        catch(HibernateException hbe) {

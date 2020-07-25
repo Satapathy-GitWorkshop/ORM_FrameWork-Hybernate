@@ -18,6 +18,7 @@ public class SaveObject {
 	Product prod=null;
 	Transaction trans=null;
 	boolean flag=false;
+	int idval=0;
 
 //Activating the hibernate Framework
 	cfg=new Configuration();
@@ -29,15 +30,18 @@ public class SaveObject {
     ses=factory.openSession();
 //Create entity class Object to Store data to database
     prod=new Product();
-       prod.setPid(103);
-       prod.setPname("colling pad");
+       
+       prod.setPname(" fan");
        prod.setPrice(200);
        prod.setQty(1);
  //Transaction management Code
        try {
     	   trans= ses.beginTransaction();  //internally calls  con.setAutoCommit(false) to begin the Tx
+    	   System.out.println("Transaction objecct class name::"+trans.getClass());
     	   //Save the Object  
-    	   ses.save(prod);
+    	  idval= (int)ses.save(prod);
+    	  System.out.println("Generated ideantity values::"+idval);
+    	  System.out.println("Configure id values::"+prod.getPid());
     	     flag=true;
        }
        catch(HibernateException hbe) {
