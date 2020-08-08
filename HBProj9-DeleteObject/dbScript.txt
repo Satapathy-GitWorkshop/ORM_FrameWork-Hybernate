@@ -1,0 +1,35 @@
+
+<-----------Approach1------------->
+Hibernate: 
+    select
+        patient_.PTNO,
+        patient_.PTNAME as ptname2_0_,
+        patient_.PTADDS as ptadds3_0_ 
+    from
+        PATIENT patient_ 
+    where
+        patient_.PTNO=?
+Hibernate: 
+    delete 
+    from
+        PATIENT 
+    where
+        PTNO=?
+     
+ <------------Approach2----------->
+ 
+ Hibernate: 
+    select
+        patient0_.PTNO as ptno1_0_0_,
+        patient0_.PTNAME as ptname2_0_0_,
+        patient0_.PTADDS as ptadds3_0_0_ 
+    from
+        PATIENT patient0_ 
+    where
+        patient0_.PTNO=?
+Hibernate: 
+    delete 
+    from
+        PATIENT 
+    where
+        PTNO=?       
