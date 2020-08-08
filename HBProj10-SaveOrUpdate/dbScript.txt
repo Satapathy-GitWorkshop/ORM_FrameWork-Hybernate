@@ -1,0 +1,29 @@
+
+-------Approch1 with extising idvalue-------------
+Hibernate: 
+    select
+        patientinf_.PTNO,
+        patientinf_.PTNAME as ptname2_0_,
+        patientinf_.PTADDS as ptadds3_0_ 
+    from
+        PATIENT patientinf_ 
+    where
+        patientinf_.PTNO=?
+        
+ ----------------Aprroch1 with new idvalues---------
+ Hibernate: 
+    select
+        patientinf_.PTNO,
+        patientinf_.PTNAME as ptname2_0_,
+        patientinf_.PTADDS as ptadds3_0_ 
+    from
+        PATIENT patientinf_ 
+    where
+        patientinf_.PTNO=?
+Hibernate: 
+    insert 
+    into
+        PATIENT
+        (PTNAME, PTADDS, PTNO) 
+    values
+        (?, ?, ?)       
