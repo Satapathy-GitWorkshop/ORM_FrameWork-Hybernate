@@ -1,0 +1,76 @@
+<---------Approach1---------->
+ 
+        ------->HAVING DIFF. ID & DIFF. VALUES
+ 
+          Hibernate: 
+    select
+        patientinf0_.PTNO as ptno1_0_0_,
+        patientinf0_.PTNAME as ptname2_0_0_,
+        patientinf0_.PTADDS as ptadds3_0_0_ 
+    from
+        PATIENT patientinf0_ 
+    where
+        patientinf0_.PTNO=?
+Hibernate: 
+    update
+        PATIENT 
+    set
+        PTNAME=?,
+        PTADDS=? 
+    where
+        PTNO=?
+              
+              ----->HAVIING SAME ID AND VALUES
+         
+         Hibernate: 
+    select
+        patientinf0_.PTNO as ptno1_0_0_,
+        patientinf0_.PTNAME as ptname2_0_0_,
+        patientinf0_.PTADDS as ptadds3_0_0_ 
+    from
+        PATIENT patientinf0_ 
+    where
+        patientinf0_.PTNO=?
+        
+        ------------->HAVING SAME ID AND DIFF. VALUES
+        
+                  select
+        patientinf0_.PTNO as ptno1_0_0_,
+        patientinf0_.PTNAME as ptname2_0_0_,
+        patientinf0_.PTADDS as ptadds3_0_0_ 
+    from
+        PATIENT patientinf0_ 
+    where
+        patientinf0_.PTNO=?
+Hibernate: 
+    update
+        PATIENT 
+    set
+        PTNAME=?,
+        PTADDS=? 
+    where
+        PTNO=?
+        
+        
+    <----------Approach2--------->
+     	
+				//calling not select method
+				//ses.delete(p1);            (javax.persistence.EntityExistsException)
+				//ses.update(p1);            (org.hibernate.NonUniqueObjectException)
+           		//ses.save(p1);              (org.hibernate.NonUniqueObjectException)
+				ses.merge(p1);
+				flag=true;
+				
+>>The problem with above comment code is when call ses.get(-) first its place the object is FirstLevel cache having the id value
+ until tx.commit(-)is called..
+  	    
+>>After that when we call above comment method with new Object its try store the object with same id values in cache So that exception will caused.
+
+>>But when is    merger(-) method is with new Object its merger the new Object values with Old Object Values.
+
+
+
+
+        
+			
+			
