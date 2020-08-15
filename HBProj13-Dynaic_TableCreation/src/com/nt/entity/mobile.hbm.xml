@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.nt.entity.Mobile" table="MOBILE">
+	      <id name="no" column="NO" type="long" length="11">
+	     <!--   <generator class="increment"></generator>-->
+	      </id>
+	     <property name="brand" column="BRAND" type="string" length="15" not-null="true" />
+	     <property name="owner" column="OWNER" type="string" length="18" not-null="true" />
+	</class>
+</hibernate-mapping>	
