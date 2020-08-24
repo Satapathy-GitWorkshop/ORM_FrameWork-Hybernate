@@ -1,0 +1,40 @@
+          <id name="no" column="NO" type="long" length="11">
+	      <generator class="sequence"></generator>
+	      </id>
+===@1@==== 
+> Hibernate: create sequence hibernate_sequence start with 1 increment by  1
+> Hibernate: 
+    select
+        hibernate_sequence.nextval 
+    from
+        dual
+Object is is Saved
+Hibernate: 
+    insert 
+    into
+        MOBILE
+        (BRAND, OWNER, NO) 
+    values
+        (?, ?, ?)  
+       
+ ===@2@====
+    To work with Custom Sequence
+ >	      <generator class="sequence">
+	      <!-- To work with custom sequence -->
+	      <param name="sequence">ID_SEQ</param>
+	      </generator>   
+ >     CREATE SEQUENCE  "SYSTEM"."ID_SEQ"  MINVALUE 1 MAXVALUE 888 INCREMENT BY 5 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;       
+ >ibernate: 
+    select
+        hibernate_sequence.nextval 
+    from
+        dual
+Generated id value::4
+Object is is Saved
+Hibernate: 
+    insert 
+    into
+        MOBILE
+        (BRAND, OWNER, NO) 
+    values
+        (?, ?, ?)
