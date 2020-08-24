@@ -1,0 +1,22 @@
+Transaction objecct class name::class org.hibernate.engine.transaction.internal.TransactionImpl
+<dynamic-insert="false">
+          Hibernate: 
+               select
+                  max(PID) 
+                        from
+                          PRODUCT
+Generated ideantity values::105
+Configure id values::105
+
+<property name="show_sql">true</prperty>
+<property name="format_sql">true</property>
+
+Hibernate: 
+    insert 
+    into
+        PRODUCT
+        (PNAME, PRICE, QTY, PID) 
+    values
+        (?, ?, ?, ?)
+
+Object is Saved
