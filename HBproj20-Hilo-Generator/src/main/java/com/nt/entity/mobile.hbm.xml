@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.nt.entity.Mobile" table="MOBILE">
+	      <id name="no" column="NO" type="long" length="11">
+	      <generator class="hilo">      <!-- With default max_val(32767 -->
+	     <!-- <param name="max_lo">10</param>  with Specified max_lo values -->
+	 <!-- To work with Custom table and Custom column -->
+	      <param name="table">HI_TAB</param>   
+	      <param name="COLUMN">HI_COL</param> 
+	      <param name="max_lo">5</param>
+	      </generator>
+	      </id>
+	     <property name="brand" column="BRAND" type="string" length="15" not-null="true" />
+	     <property name="owner" column="OWNER" type="string" length="18" not-null="true" />
+	</class>
+</hibernate-mapping>	
