@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.nt.entity.PersonInfo" table="PERSON_INFO">
+	      <id name="pid" column="PID" type="int" >
+	        <generator class="sequence"></generator>
+	      </id>
+	     <property name="pname" column="PNAME" type="string" length="15" />
+	     <property name="padd" column="PADD" type="string" length="18"  />
+	     <!--  <property name="doj" column="DOJ" type="time"       
+	         <property name="dom" column="DOM" type="time"  /> -->
+	   <property name="dob" column="DOB" />
+	   <property name="doj" column="DOJ" />   <!-- If we are working java8 time no need of column type mentioning  -->
+	    <property name="dom" column="DOM" />	         
+	</class>
+</hibernate-mapping>	
