@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.nt.entity.BankAccount" table="BANK">
+	      <id name="accno" column="ACCOUNTNO" type="long" >
+	        <generator class="increment"></generator>
+	      </id>
+	        <version name="version_count" type="int"/>  <!-- It must be place after id tag and before property tag -->
+	     <property name="holdername" column="HOLDERNAME" type="string" length="15" />
+	     <property name="type" column="TYPE" type="string" length="18"  />
+	     <property name="balance" column="BALANCE" type="float" />
+	     
+	
+	      
+	</class>
+</hibernate-mapping>	
